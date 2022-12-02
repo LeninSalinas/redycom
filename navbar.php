@@ -6,8 +6,9 @@
         <div class="sidebarmenu">
             <h3 class="menu-title">Panel</h3>
             <ul class="sidebar-menu">
-                <li><a href="base.php">BASE </a></li>
+                <li><a href="equipos.php">EQUIPOS </a></li>
                 <li><a href="rol.php">ROL </a></li>
+                <li><a href="sucursal.php">sucursal </a></li>
             </ul>
         </div>
     </li>
