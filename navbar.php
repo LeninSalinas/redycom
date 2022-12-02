@@ -8,6 +8,7 @@
             <ul class="sidebar-menu">
                 <li><a href="base.php">BASE </a></li>
                 <li><a href="rol.php">ROL </a></li>
+                <li><a href="sucursal.php">sucursal </a></li>
             </ul>
         </div>
     </li>
