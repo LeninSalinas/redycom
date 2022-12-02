@@ -6,12 +6,7 @@
         <div class="sidebarmenu">
             <h3 class="menu-title">PANEL</h3>
             <ul class="sidebar-menu">
-<<<<<<< Updated upstream
-                <li><a href="equipos.php">EQUIPOS </a></li>
-                <li><a href="rol.php">ROL </a></li>
-                <li><a href="sucursal.php">sucursal </a></li>
-=======
-                <li><a href="index.php">Pamel</a></li>
+                <li><a href="index.php">Panel</a></li>
                 <li><a href="base.php">Base</a></li>
                 <li><a href="rol.php">Rol</a></li>
             </ul>
@@ -34,7 +29,6 @@
                 <li><a href="rack_nuevo.php">Crear</a></li>
                 <li><a href="rack_editar.php">Editar</a></li>
                 <li><a href="racks.php">Rack</a></li>
->>>>>>> Stashed changes
             </ul>
         </div>
     </li>
