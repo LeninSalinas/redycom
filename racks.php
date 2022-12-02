@@ -15,6 +15,7 @@ $titulo = "RACKS";
         <?php 
         include_once 'top_bar.php';
         include_once 'navbar.php';
+        include_once 'ventanas/asignar_equipo.php';
         ?>
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -27,12 +28,15 @@ $titulo = "RACKS";
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                This is some text within a card block.
-                            </div>
-                        </div>
+                    <div class="col-md-4 col-sm-4 p-20">
+                        <h4 class="card-title">Rack 1</h4>
+                        <ul class="list-group list-group-full">
+                            <li class="list-group-item">Ocupado 
+                                <span class="tooltip-item" data-container="body" title="" data-toggle="popover" data-placement="top" data-content="Puertos" data-original-title="Informacion" aria-describedby="popover401898"><i class="fa fa-info"></i></span>
+                                <span class="tooltip-item"><i class="fa fa-eye"></i></span>
+                            </li>
+                            <li class="list-group-item"> Vacio <button type="button" onclick="asignar('1')" class="btn btn-success btn-circle" data-toggle="modal" data-target="#procesar_fondos"><i class="fa fa-plus"></i></button></li>
+                        </ul>
                     </div>
                 </div>
                 <?php include_once 'rightbar.php';?>
@@ -41,5 +45,17 @@ $titulo = "RACKS";
         <?php include_once 'footer.php';?>
     </div>
     <?php include_once 'scripts.php'; ?>
+    <script>
+    function asignar(id){
+	  var options = {
+			modal: true,
+			height:300,
+			width:600
+		};
+	  $('#contenido').load('ajax/datos_equipo.php?id='+id, function() {
+		$('#Edit_Stock').modal({show:true});
+    });
+    }
+    </script>
 </body>
 </html>
