@@ -30,6 +30,26 @@ $titulo = "Equipos";
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                <div class="col-md-6">
+                                    <!-- Nav tabs -->
+                                    <div class="vtabs">
+                                        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                            <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home4" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Informacion del equipo</span> </a> </li>
+                                            <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Profile</span></a> </li>
+                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li>-->
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane active show" id="home4" role="tabpanel">
+                                                <div class="p-20">
+                                                    <!--aqui va info del equipo-->
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane p-20" id="profile4" role="tabpanel">2</div>
+                                            <div class="tab-pane p-20" id="messages4" role="tabpanel">3</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="table-responsive m-t-40">
                                     <div id="example23_wrapper" class="dataTables_wrapper">
                                         <div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example23" href="#">
@@ -50,6 +70,7 @@ $titulo = "Equipos";
                                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Existe configuracion: activate to sort column ascending" style="width: 66px;">Existe configuracion</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Direccion IP: activate to sort column ascending" style="width: 66px;">Direccion IP</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Password cifrado: activate to sort column ascending" style="width: 66px;">Password cifrado</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" style="width: 66px;">Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,6 +98,26 @@ $titulo = "Equipos";
                                                     <td>
                                                         <?php //aqui van a ir los datos de la tabla
                                                         ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php //aqui van a ir los datos de la tabla
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php //aqui van a ir los datos de la tabla
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php //aqui van a ir los datos de la tabla
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php //aqui van a ir los datos de la tabla
+                                                        ?>
+                                                    </td>
+                                                    <td class="text-nowrap">
+                                                        <a href="actualizareq.php?id=<?php //aqui va el id ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="deleteeq.php?id=<?php //aqui va el id ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                                                     </td>
                                                 </tr>
                                             </tbody>

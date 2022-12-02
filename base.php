@@ -20,7 +20,7 @@ $titulo = "BASE";
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-12">
-                        <h4 class="text-white"><?php echo $titulo;?></h4>
+                        <h4 class="text-dark"><?php echo $titulo;?></h4>
                     </div>
                     <div class="col-md-6 text-right">
 

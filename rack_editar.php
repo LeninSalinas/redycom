@@ -1,6 +1,6 @@
 <?php 
-require_once 'config/db.php';
-require_once 'config/conexion.php';
+//require_once 'config/db.php';
+//require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
@@ -20,7 +20,7 @@ $titulo = "Editar Rack";
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-12">
-                        <h4 class="text-white"><?php echo $titulo;?></h4>
+                        <h4 class="text-dark"><?php echo $titulo;?></h4>
                     </div>
                     <div class="col-md-6 text-right">
 

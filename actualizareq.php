@@ -4,7 +4,7 @@
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "Registrar Equipos";
+$titulo = "Editar Equipos";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +34,7 @@ $titulo = "Registrar Equipos";
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Registro de datos de los equipos</h4>
+                                <h4 class="card-title">Actualizar datos de los equipos</h4>
                                 <h6 class="card-subtitle"> <code></code></h6>
                                 <form class="form-material m-t-40">
                                     <div class="form-group">
