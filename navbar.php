@@ -37,7 +37,7 @@
                 <ul class="sidebar-menu">
                     <li><a href="equipos.php">Lista</a></li>
                     <li><a href="actualizareq.php">Editar Equipo</a></li>
-                    <li><a href="rol.php">Crear Rol</a></li>
+                    <li><a href="rol_nuevo.php">Crear Rol</a></li>
                 </ul>
             </div>
         </li>

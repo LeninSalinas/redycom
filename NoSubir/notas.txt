@@ -12,13 +12,15 @@ VIEWS (LISTA, EDITAR, CREAR)
 	-ROL
 	-ESTADO
 -BITACORA (TAB DENTRO DE DETALLE EQUIPO)
+ -NOMBRE
+ -DETALLES
+ -USUARIO
+ -FECHA
+ -ESTADO
 
 (EDISSON)
 -RACKS
 -MAPA DE SUCURSALES (SOLO LISTA)
 -PANEL (REPORTES GRAFICOS)
 
-<li><a href="equipos.php">Vista Equipos </a></li>
-<li><a href="actualizareq.php">Actualizar equipos</a></li>
-<li><a href="rack_editar.php">Editar Rack</a></li>
-                    <li><a href="racks.php">Vista Rack</a></li>
+123.567.901
