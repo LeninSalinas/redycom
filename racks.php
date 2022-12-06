@@ -1,6 +1,6 @@
 <?php 
-//require_once 'config/db.php';
-//require_once 'config/conexion.php';
+require_once 'config/db.php';
+require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
@@ -35,7 +35,7 @@ $titulo = "RACKS";
                                 <span class="tooltip-item" data-container="body" title="" data-toggle="popover" data-placement="top" data-content="Puertos" data-original-title="Informacion" aria-describedby="popover401898"><i class="fa fa-info"></i></span>
                                 <span class="tooltip-item"><i class="fa fa-eye"></i></span>
                             </li>
-                            <li class="list-group-item"> Vacio <button type="button" onclick="asignar('1')" class="btn btn-success btn-circle" data-toggle="modal" data-target="#procesar_fondos"><i class="fa fa-plus"></i></button></li>
+                            <li class="list-group-item"> Vacio <button type="button" onclick="asignar('1')" class="btn btn-success btn-circle" data-toggle="modal" data-target="#AsignarEquipo"><i class="fa fa-plus"></i></button></li>
                         </ul>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ $titulo = "RACKS";
 			width:600
 		};
 	  $('#contenido').load('ajax/datos_equipo.php?id='+id, function() {
-		$('#Edit_Stock').modal({show:true});
+		$('#AsignarEquipo').modal({show:true});
     });
     }
     </script>

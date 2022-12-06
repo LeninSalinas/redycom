@@ -2,11 +2,11 @@
   if (isset($con))
   {
 ?>
-<div id="Edit_Stock" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div id="AsignarEquipo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title">Editar Item</h4>
+      <h4 class="modal-title">Asignar Equipo</h4>
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     </div>
     <div class="modal-body">

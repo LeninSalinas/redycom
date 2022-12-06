@@ -46,7 +46,7 @@ $titulo = "Sucursal";
                                         <input type="text" id="tell" name="tell" class="form-control" placeholder=""> </div>
                                     
                                     <div class="form-group">
-                                        <label>status</label>
+                                        <label>Estado</label>
                                         <select class="form-control">
                                             <option>Habilitado</option>
                                             <option>Desabilitado</option>

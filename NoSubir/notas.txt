@@ -17,3 +17,8 @@ VIEWS (LISTA, EDITAR, CREAR)
 -RACKS
 -MAPA DE SUCURSALES (SOLO LISTA)
 -PANEL (REPORTES GRAFICOS)
+
+<li><a href="equipos.php">Vista Equipos </a></li>
+<li><a href="actualizareq.php">Actualizar equipos</a></li>
+<li><a href="rack_editar.php">Editar Rack</a></li>
+                    <li><a href="racks.php">Vista Rack</a></li>
