@@ -1,6 +1,6 @@
 <?php 
-//require_once 'config/db.php';
-//require_once 'config/conexion.php';
+require_once 'config/db.php';
+require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
@@ -31,97 +31,45 @@ $titulo = "Nuevo Rack";
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Creacion de un Rack</h4>
-                                <h6 class="card-subtitle"> En la Surcusal  </h6>
-                                <form class="form" method="POST" action="php/edit_rack.php">
+                                <form class="form" method="POST" action="php/new_rack.php">
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Marca</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Sucursal</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" name="marca" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Modelo</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="text" name="modelo" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Rol</label>
-                                        <div class="col-10">
-                                            <select class="custom-select col-12" id="inlineFormCustomSelect" required>
-                                                <option value="0">Rol</option>
+                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="sucursal" required>
+                                                <?php 
+                                                $sql = $con->query("SELECT * FROM sucursal WHERE estado_suc = 1");
+                                                while ($rows = $sql->fetch_array()){
+                                                ?>
+                                                <option value="<?php echo $rows['id_sucursal'];?>"><?php echo $rows['nombre_suc'];?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Cantidad Puertos</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Nombre</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="number" name="c_puertos" value="" required>
+                                            <input class="form-control" type="text" name="nombre" value="" required>
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Direccion IP</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Cantidad Ranuras</label>
                                         <div class="col-10">
-                                            <input type="text" placeholder="" data-mask="999.999.999.9999" class="form-control" required>
+                                            <input class="form-control" type="number" name="c_slot" value="" required>
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Doble Fuente</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Estado</label>
                                         <div class="col-10">
                                             <div class="input-group">
                                                 <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="d_fuente">
-                                                    <label for="minimal-radio-1">Si</label>
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" checked name="estado">
+                                                    <label for="minimal-radio-1">Activo</label>
                                                 </ul>
                                                 <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="d_fuente">
-                                                    <label for="minimal-radio-1">No</label>
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false"  name="estado">
+                                                    <label for="minimal-radio-1">Inactivo</label>
                                                 </ul>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Existe BackUp de Configuracios</label>
-                                        <div class="col-10">
-                                            <div class="input-group">
-                                                <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="backup">
-                                                    <label for="minimal-radio-1">Si</label>
-                                                </ul>
-                                                <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="backup">
-                                                    <label for="minimal-radio-1">No</label>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Monitoreo</label>
-                                        <div class="col-10">
-                                            <div class="input-group">
-                                                <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="monitoreo">
-                                                    <label for="minimal-radio-1">Si</label>
-                                                </ul>
-                                                <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="monitoreo">
-                                                    <label for="minimal-radio-1">No</label>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <h4>Credenciales de Acceso</h4>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Usuario</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="text" name="usuarios" value="" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Password</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="password" name="usuarios" value="" required>
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">

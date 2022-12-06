@@ -1,10 +1,10 @@
 <?php 
-//require_once 'config/db.php';
-//require_once 'config/conexion.php';
-//require_once 'php/accesos.php';
-//require_once 'php/funciones.php';
+require_once 'config/db.php';
+require_once 'config/conexion.php';
+require_once 'php/accesos.php';
+require_once 'php/funciones.php';
 
-$titulo = "Sucursal";
+$titulo = "Nueva Sucursal";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +16,6 @@ $titulo = "Sucursal";
         include_once 'top_bar.php';
         include_once 'navbar.php';
         ?>
-
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -28,12 +27,12 @@ $titulo = "Sucursal";
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-12">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Sucursales </h4>
+                                <h4 class="card-title">Registro de Sucursal</h4>
                                 <h6 class="card-subtitle"> <code></code></h6>
-                                <form class="form-material m-t-40">
+                                <form class="form-material m-t-40" method="POST" action="php/new_sucursal.php">
                                     
                                     <div class="form-group">
                                         <label for="example-email">Nombre <span class="help"></span></label>
@@ -47,19 +46,19 @@ $titulo = "Sucursal";
                                     
                                     <div class="form-group">
                                         <label>Estado</label>
-                                        <select class="form-control">
-                                            <option>Habilitado</option>
-                                            <option>Desabilitado</option>
-                                           
+                                        <select class="form-control" name="estado">
+                                            <option value="1">Habilitado</option>
+                                            <option value="0">Desabilitado</option>
                                         </select>
                                     </div>
-                                   
-                                   
-                                        
+                                    <div class="form-group m-t-40 row">
+                                        <a href="sucursal.php"><button class="btn btn-danger waves-effect waves-light m-r-10">Cancelar</button></a>
+                                        <button type="reset" class="btn btn-warning waves-effect waves-light m-r-10">Vaciar</button>
+                                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Registrar</button>
+                                    </div>                         
                                 </form>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
                 <?php include_once 'rightbar.php';?>

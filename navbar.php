@@ -15,7 +15,7 @@
             <div class="sidebarmenu">
                 <h3 class="menu-title">Sucursales</h3>
                 <ul class="sidebar-menu">
-                    <li><a href="sucursal.php">Crear Sucursal</a></li>
+                    <li><a href="sucursal_nueva.php">Crear Sucursal</a></li>
                     <li><a href="mapa.php">Mapa</a></li>
                 </ul>
             </div>
@@ -37,7 +37,7 @@
                 <ul class="sidebar-menu">
                     <li><a href="equipos.php">Lista</a></li>
                     <li><a href="actualizareq.php">Editar Equipo</a></li>
-                    <li><a href="rol_nuevo.php">Crear Rol</a></li>
+                    <li><a href="equipo_nuevo.php">Crear Equipo</a></li>
                 </ul>
             </div>
         </li>

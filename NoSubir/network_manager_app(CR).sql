@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2022 a las 05:26:42
+-- Tiempo de generación: 06-12-2022 a las 07:28:22
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -46,11 +46,12 @@ CREATE TABLE `bitacora` (
 CREATE TABLE `equipo` (
   `id_equipo` int(11) NOT NULL,
   `id_rack` int(11) NOT NULL,
+  `rack_pos` int(11) NOT NULL,
   `marca_equ` varchar(45) NOT NULL,
   `modelo_equ` varchar(45) NOT NULL,
   `id_rol` int(11) NOT NULL,
   `cant_puertos_equ` int(11) NOT NULL,
-  `ip_equ` varchar(11) NOT NULL,
+  `ip_equ` varchar(15) NOT NULL,
   `doble_fuente_equ` tinyint(4) NOT NULL,
   `backup_equ` tinyint(4) NOT NULL,
   `monitoreo_equ` tinyint(4) NOT NULL,
