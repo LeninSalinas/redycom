@@ -25,7 +25,6 @@
             <div class="sidebarmenu">
                 <h3 class="menu-title">Racks</h3>
                 <ul class="sidebar-menu">
-                    <li><a href="racks.php">Rack</a></li>
                     <li><a href="rack_nuevo.php">Crear Rack</a></li>
                 </ul>
             </div>

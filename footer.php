@@ -1,3 +1,3 @@
 <footer class="footer">
-    © 2018 Eliteadmin by themedesigner.in
+    © <?php echo date('Y');?> Desarrollador por: Yasmin, Edisson y Lenin | PROGRAMACION WEB II
 </footer>

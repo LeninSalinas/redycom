@@ -12,7 +12,7 @@ $titulo = "RACKS";
 <html lang="es">
 <?php include_once 'head.php';?>
 <body class="skin-default fixed-layout">   
-    <?php //include_once 'loader.php';?>
+    <?php include_once 'loader.php';?>
     <div id="main-wrapper">
         <?php 
         include_once 'top_bar.php';
@@ -39,16 +39,27 @@ $titulo = "RACKS";
                         <ul class="list-group list-group-full">
                             <?php 
                             $id_rack = $rows['id_rack'];
-                            $sql2 = $con->query("SELECT * FROM equipo WHERE id_rack='$id_rack'");
+                            
                             for($x=1;$x<=$rows['ranuras_rack'];$x++){
-                                //if()
-                            ?>
-                            <li class="list-group-item">Ocupado | 
-                                <span class="tooltip-item" data-container="body" title="" data-toggle="popover" data-placement="top" data-content="Puertos" data-original-title="Informacion" aria-describedby="popover401898"><i class="fa fa-info"></i></span>
-                                <span class="tooltip-item"><i class="fa fa-eye"></i></span>
+                                $sql2 = $con->query("SELECT * FROM equipo WHERE id_rack='$id_rack' AND rack_pos='$x'");
+                                if($equ = $sql2->fetch_array()){
+                                    
+                                ?>
+                            <li class="list-group-item"><?php echo nombre_rol($equ['id_rol'])."-".$equ['marca_equ']?> | 
+                                <span class="badge badge-info" data-container="body" title="" data-toggle="popover" data-placement="top" data-content="# Puertos: <?php echo $equ['cant_puertos_equ'];?> IP: <?php echo $equ['ip_equ'];?>" data-original-title="Informacion" aria-describedby="popover401898"><i class="fa fa-info"></i></span>
+                                <a href="equipo_detalle.php?id=<?php echo $equ['id_equipo'];?>"><span class="badge badge-primary"><i class="fa fa-eye"></i></span></a>
                             </li>
-                            <?php }?>
-                            <li class="list-group-item"> Vacio <button type="button" onclick="asignar('1')" class="btn btn-success btn-circle" data-toggle="modal" data-target="#AsignarEquipo"><i class="fa fa-plus"></i></button></li>
+                                <?php
+                                }else{
+                                ?>
+                            <li class="list-group-item">Slot Vacio |
+                                <span class="badge badge-success" onclick="asignar('<?php echo $x; ?>','<?php echo $id_sucursal;?>')"><i class="fa fa-plus"></i></span>
+                            </li>
+                                <?php
+                                }
+                            ?>
+                            
+                            <?php } ?>
                         </ul>
                     </div>
                     <?php }?>
@@ -60,13 +71,13 @@ $titulo = "RACKS";
     </div>
     <?php include_once 'scripts.php'; ?>
     <script>
-    function asignar(id){
+    function asignar(id, suc){
 	  var options = {
 			modal: true,
 			height:300,
 			width:600
 		};
-	  $('#contenido').load('ajax/datos_equipo.php?id='+id, function() {
+	  $('#contenido').load('ajax/datos_equipo.php?id='+id+'&suc='+suc, function() {
 		$('#AsignarEquipo').modal({show:true});
     });
     }
