@@ -26,6 +26,8 @@
                 <h3 class="menu-title">Racks</h3>
                 <ul class="sidebar-menu">
                     <li><a href="rack_nuevo.php">Crear Rack</a></li>
+                    <li><a href="crearbitacora.php">Crear Bitacora</a></li>
+                    <li><a href="crearpuertos.php">Crear puertos</a></li>
                 </ul>
             </div>
         </li>
@@ -39,5 +41,5 @@
                     <li><a href="equipo_nuevo.php">Crear Equipo</a></li>
                 </ul>
             </div>
-        </li>
+        </li>        
 </div>
