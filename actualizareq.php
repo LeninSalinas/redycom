@@ -97,11 +97,11 @@ $titulo = "Nuevo Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['doble_fuente_equ'] == "1") {echo "checked";} ?>" name="d_fuente">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['doble_fuente_equ'] == "1") {echo "checked";} ?> name="d_fuente">
                                                         <label for="minimal-radio-1">Si</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['doble_fuente_equ'] == "0") {echo "checked";} ?>" checked name="d_fuente">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['doble_fuente_equ'] == "0") {echo "checked";} ?> name="d_fuente">
                                                         <label for="minimal-radio-1">No</label>
                                                     </ul>
                                                 </div>
@@ -112,11 +112,11 @@ $titulo = "Nuevo Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['backup_equ'] == "1") {echo "checked";} ?>" name="backup">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['backup_equ'] == "1") {echo "checked";} ?> name="backup">
                                                         <label for="minimal-radio-1">Si</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['backup_equ'] == "0") {echo "checked";} ?>" checked name="backup">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['backup_equ'] == "0") {echo "checked";} ?> name="backup">
                                                         <label for="minimal-radio-1">No</label>
                                                     </ul>
                                                 </div>
@@ -127,11 +127,11 @@ $titulo = "Nuevo Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['monitoreo_equ'] == "1") {echo "checked";} ?>" name="monitoreo">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['monitoreo_equ'] == "1") {echo "checked";} ?> name="monitoreo">
                                                         <label for="minimal-radio-1">Si</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['monitoreo_equ'] == "0") {echo "checked";} ?>" name="monitoreo">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['monitoreo_equ'] == "0") {echo "checked";} ?> name="monitoreo">
                                                         <label for="minimal-radio-1">No</label>
                                                     </ul>
                                                 </div>
@@ -142,11 +142,11 @@ $titulo = "Nuevo Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['estado_equ'] == "1") {echo "checked";} ?>" name="estado">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['estado_equ'] == "1") {echo "checked";} ?> name="estado">
                                                         <label for="minimal-radio-1">Activo</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="<?php if ($fila['estado_equ'] == "0") {echo "checked";} ?>" name="estado">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['estado_equ'] == "0") {echo "checked";} ?> name="estado">
                                                         <label for="minimal-radio-1">Inactivo</label>
                                                     </ul>
                                                 </div>
