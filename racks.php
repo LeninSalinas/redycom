@@ -47,7 +47,7 @@ $titulo = "RACKS";
                                 ?>
                             <li class="list-group-item"><?php echo nombre_rol($equ['id_rol'])."-".$equ['marca_equ']?> | 
                                 <span class="badge badge-info" data-container="body" title="" data-toggle="popover" data-placement="top" data-content="# Puertos: <?php echo $equ['cant_puertos_equ'];?> IP: <?php echo $equ['ip_equ'];?>" data-original-title="Informacion" aria-describedby="popover401898"><i class="fa fa-info"></i></span>
-                                <a href="equipo_detalle.php?id=<?php echo $equ['id_equipo'];?>"><span class="badge badge-primary"><i class="fa fa-eye"></i></span></a>
+                                <a href="datos_equipo.php?id=<?php echo $equ['id_equipo'];?>"><span class="badge badge-primary"><i class="fa fa-eye"></i></span></a>
                             </li>
                                 <?php
                                 }else{

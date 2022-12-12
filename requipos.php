@@ -36,7 +36,7 @@ $titulo = "Registrar Equipos";
                             <div class="card-body">
                                 <h4 class="card-title">Registro de datos de los equipos</h4>
                                 <h6 class="card-subtitle"> <code></code></h6>
-                                <form class="form-material m-t-40">
+                                <form class="form-material m-t-40" method="post" action="php/new_equipo.php">
                                     <div class="form-group">
                                         <label for="example-email">Marca</label>
                                         <input type="text" id="rol" name="marca" class="form-control" placeholder="">

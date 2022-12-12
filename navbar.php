@@ -15,7 +15,7 @@
             <div class="sidebarmenu">
                 <h3 class="menu-title">Sucursales</h3>
                 <ul class="sidebar-menu">
-                    <li><a href="sucursal_nueva.php">Crear Sucursal</a></li>
+                    <li><a href="sucursal.php">Crear Sucursal</a></li>
                     <li><a href="mapa.php">Mapa</a></li>
                 </ul>
             </div>

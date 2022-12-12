@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'config/db.php';
 require_once 'config/conexion.php';
 require_once 'php/accesos.php';
@@ -8,11 +8,12 @@ $titulo = "Puertos";
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<?php include_once 'head.php';?>
-<body class="skin-default fixed-layout">   
-    <?php include_once 'loader.php';?>
+<?php include_once 'head.php'; ?>
+
+<body class="skin-default fixed-layout">
+    <?php include_once 'loader.php'; ?>
     <div id="main-wrapper">
-        <?php 
+        <?php
         include_once 'top_bar.php';
         include_once 'navbar.php';
         ?>
@@ -20,7 +21,7 @@ $titulo = "Puertos";
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-12">
-                        <h4 class="text-dark"><?php echo $titulo;?></h4>
+                        <h4 class="text-dark"><?php echo $titulo; ?></h4>
                     </div>
                     <div class="col-md-6 text-right">
 
@@ -36,11 +37,13 @@ $titulo = "Puertos";
                                         <label for="example-text-input" class="col-2 col-form-label">Nombre del equipo</label>
                                         <div class="col-10">
                                             <select class="custom-select col-12" id="inlineFormCustomSelect" name="nomequipos" required>
-                                                <?php 
-                                                $sql = $con->query("SELECT CONCAT(equipo.marca_equ,' ',rol.nombre_rol) FROM ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
-                                                while ($rows = $sql->fetch_array()){
+                                                <?php
+                                                $marca = "equipo.marca_equ";
+                                                $rol = "rol.nombre_rol";
+                                                $sql = $con->query("select CONCAT($marca,' ',$rol) AS Equipos, equipo.id_equipo FROM ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
+                                                while ($rows = $sql->fetch_array()) {
                                                 ?>
-                                                <option value="<?php echo $rows['equipo.id_equipo'];?>"><?php echo $rows["CONCAT(equipo.marca_equ,' ',rol.nombre_rol)"];?></option>
+                                                    <option value="<?php echo $rows['id_equipo']; ?>"><?php echo $rows["Equipos"]; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -48,7 +51,16 @@ $titulo = "Puertos";
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-2 col-form-label">Numero de puertos</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" name="numpuerto" value="" placeholder="aqui va el numero de puertos del equipo">
+                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="nompuerto" required>
+                                                <?php
+                                                $sql2 = $con->query("select `cant_puertos_equ` FROM `equipo` `equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol WHERE $marca='hp' AND $rol='switch'  AND `estado_equ`='1'");
+                                                while ($fila = $sql2->fetch_array()) {
+                                                    for ($i = 1; $i <= $fila['cant_puertos_equ']; $i++) {
+                                                ?>
+                                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                <?php }
+                                                } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">
@@ -66,7 +78,7 @@ $titulo = "Puertos";
                                                     <label for="minimal-radio-1">Activo</label>
                                                 </ul>
                                                 <ul class="icheck-list">
-                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false"  name="estado">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="estado">
                                                     <label for="minimal-radio-1">Inactivo</label>
                                                 </ul>
                                             </div>
@@ -82,12 +94,13 @@ $titulo = "Puertos";
                         </div>
                     </div>
                 </div>
-                <?php include_once 'rightbar.php';?>
+                <?php include_once 'rightbar.php'; ?>
             </div>
         </div>
-        <?php include_once 'footer.php';?>
+        <?php include_once 'footer.php'; ?>
     </div>
     <?php include_once 'scripts.php'; ?>
     <script src="js/pages/mask.js"></script>
 </body>
+
 </html>

@@ -1,20 +1,18 @@
 <?php
-//require_once 'config/db.php';
-//require_once 'config/conexion.php';
+require_once 'config/db.php';
+require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "Editar Equipos";
+$titulo = "Nuevo Equipo";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <?php include_once 'head.php'; ?>
-<link href="dist/css/style.min.css" rel="stylesheet">
-<!-- page css -->
-<link href="dist/css/pages/form-icheck.css" rel="stylesheet">
 
 <body class="skin-default fixed-layout">
-    <?php include_once 'loader.php'; ?>
+    <?php //include_once 'loader.php';
+    ?>
     <div id="main-wrapper">
         <?php
         include_once 'top_bar.php';
@@ -31,85 +29,143 @@ $titulo = "Editar Equipos";
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Actualizar datos de los equipos</h4>
-                                <h6 class="card-subtitle"> <code></code></h6>
-                                <form class="form-material m-t-40">
-                                    <div class="form-group">
-                                        <label for="example-email">Marca</label>
-                                        <input type="text" id="rol" name="marca" class="form-control" placeholder="">
+                                <h4 class="card-title">Registro de Equipo</h4>
+                                <form class="form" method="POST" action="php/new_equipo.php">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Rack</label>
+                                        <div class="col-10">
+                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="rack" required>
+                                                <?php
+                                                $sql = $con->query("SELECT * FROM rack WHERE estado_rack = 1");
+                                                while ($rows = $sql->fetch_array()) {
+                                                ?>
+                                                    <option value="<?php echo $rows['id_rack']; ?>"><?php echo $rows['nombre_rack']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="example-email">Modelo <span class="help"></span></label>
-                                        <input type="text" id="marca" name="modelo" class="form-control" placeholder="">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Marca</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="marca" value="" required>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="example-email">Numero de Puertos <span class="help"></span></label>
-                                        <input type="text" id="puertos" name="puertos" class="form-control" placeholder="">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Modelo</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="modelo" value="" required>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>información sobre la Garantia</label>
-                                        <input type="text" id="puertos" name="garantia" class="form-control" placeholder="">
+                                    <div class="form-group row">
+                                        <label for="example-month-input" class="col-2 col-form-label">Rol</label>
+                                        <div class="col-10">
+                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="rol" required>
+                                                <?php
+                                                $sql = $con->query("SELECT * FROM rol WHERE estado_rol = 1");
+                                                while ($rows = $sql->fetch_array()) {
+                                                ?>
+                                                    <option value="<?php echo $rows['id_rol']; if ($row['nombre_rol'] == $row['nombre_rol']) { echo "selected"; } ?>"><?php echo $rows['nombre_rol']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Direccion IP</label>
-                                        <input type="text" placeholder="" data-mask="9.9.9.9" class="form-control">
-                                        <span class="font-13 text-muted">0.0.0.0</span>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Cantidad Puertos</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="number" name="c_puertos" value="" required>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Credenciales de acceso</label>
-                                        <input type="password" id="puertos" name="garantia" class="form-control" placeholder="">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Direccion IP</label>
+                                        <div class="col-10">
+                                            <input type="text" class="form-control" id="ipv4" name="ip" placeholder="255.255.255.255" />
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Si poseen doble fuente</label>
-                                        <div class="form-group">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Doble Fuente</label>
+                                        <div class="col-10">
                                             <div class="input-group">
                                                 <ul class="icheck-list">
-                                                    <li>
-                                                        <input type="radio" class="check" id="flat-radio-2" name="radiof" data-radio="iradio_flat-red">
-                                                        <label for="flat-radio-2">Si</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" class="check" id="flat-radio-2" name="radiof" data-radio="iradio_flat-red">
-                                                        <label for="flat-radio-2">No</label>
-                                                    </li>
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="d_fuente">
+                                                    <label for="minimal-radio-1">Si</label>
+                                                </ul>
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="d_fuente">
+                                                    <label for="minimal-radio-1">No</label>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Si se tiene Backup de la configuración</label>
-                                        <div class="form-group">
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Existe BackUp de Configuracios</label>
+                                        <div class="col-10">
                                             <div class="input-group">
                                                 <ul class="icheck-list">
-                                                    <li>
-                                                        <input type="radio" class="check" id="flat-radio-2" name="radiof" data-radio="iradio_flat-red">
-                                                        <label for="flat-radio-2">Si</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" class="check" id="flat-radio-2" name="radiof" data-radio="iradio_flat-red">
-                                                        <label for="flat-radio-2">No</label>
-                                                    </li>
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="backup">
+                                                    <label for="minimal-radio-1">Si</label>
+                                                </ul>
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="backup">
+                                                    <label for="minimal-radio-1">No</label>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>status</label>
-                                        <select class="form-control">
-                                            <option>Habilitado</option>
-                                            <option>Desabilitado</option>
-
-                                        </select>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Monitoreo</label>
+                                        <div class="col-10">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" name="monitoreo">
+                                                    <label for="minimal-radio-1">Si</label>
+                                                </ul>
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" checked name="monitoreo">
+                                                    <label for="minimal-radio-1">No</label>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Enviar</button>
-                                    <button type="reset" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Estado</label>
+                                        <div class="col-10">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="true" checked name="estado">
+                                                    <label for="minimal-radio-1">Activo</label>
+                                                </ul>
+                                                <ul class="icheck-list">
+                                                    <input tabindex="7" type="radio" class="check" id="minimal-radio-3" value="false" name="estado">
+                                                    <label for="minimal-radio-1">Inactivo</label>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h4>Credenciales de Acceso</h4>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Usuario</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="usuario" value="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Password</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="password" name="password" value="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-t-40 row">
+                                        <a href="#"><button class="btn btn-danger waves-effect waves-light m-r-10">Cancelar</button></a>
+                                        <button type="reset" class="btn btn-warning waves-effect waves-light m-r-10">Vaciar</button>
+                                        <input type="submit" value="Registrar">
+                                    </div>
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <?php include_once 'rightbar.php'; ?>
@@ -118,25 +174,17 @@ $titulo = "Editar Equipos";
         <?php include_once 'footer.php'; ?>
     </div>
     <?php include_once 'scripts.php'; ?>
-    <script src="../assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/popper/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="dist/js/sidebarmenu.js"></script>
-    <!--stickey kit -->
-    <script src="../assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="../assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
-    <!--Custom JavaScript -->
-    <script src="dist/js/custom.min.js"></script>
-    <script src="dist/js/pages/mask.js"></script>
-    <!-- icheck -->
-    <script src="../assets/node_modules/icheck/icheck.min.js"></script>
-    <script src="../assets/node_modules/icheck/icheck.init.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+    <script id="rendered-js">
+        //input mask bundle ip address
+        var ipv4_address = $('#ipv4');
+        ipv4_address.inputmask({
+            alias: "ip",
+            greedy: false //The initial mask shown will be "" instead of "-____".
+        });
+        //# sourceURL=pen.js
+    </script>
 </body>
 
 </html>
