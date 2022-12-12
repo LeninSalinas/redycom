@@ -37,8 +37,9 @@
                 <h3 class="menu-title">Equipos</h3>
                 <ul class="sidebar-menu">
                     <li><a href="equipos.php">Lista</a></li>
-                    <li><a href="actualizareq.php">Editar Equipo</a></li>
                     <li><a href="equipo_nuevo.php">Crear Equipo</a></li>
+                    <li><a href="rol2_tabla.php">Roles</a></li>
+                    <li><a href="rol_nuevo.php">Crear Rol</a></li>
                 </ul>
             </div>
         </li>        
