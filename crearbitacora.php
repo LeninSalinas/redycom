@@ -37,10 +37,10 @@ $titulo = "Bitacoras";
                                         <div class="col-10">
                                             <select class="custom-select col-12" id="inlineFormCustomSelect" name="nomequipos" required>
                                                 <?php 
-                                                $sql = $con->query("SELECT CONCAT(equipo.marca_equ,' ',rol.nombre_rol) FROM ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
+                                                $sql = $con->query("SELECT CONCAT(equipo.marca_equ,' ',rol.nombre_rol), equipo.id_equipo FROM ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
                                                 while ($rows = $sql->fetch_array()){
                                                 ?>
-                                                <option value="<?php echo $rows['equipo.id_equipo'];?>"><?php echo $rows["CONCAT(equipo.marca_equ,' ',rol.nombre_rol)"];?></option>
+                                                <option value="<?php echo $rows['id_equipo'];?>"><?php echo $rows["CONCAT(equipo.marca_equ,' ',rol.nombre_rol)"];?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>

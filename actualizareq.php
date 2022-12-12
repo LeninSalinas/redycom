@@ -38,7 +38,7 @@ $titulo = "Nuevo Equipo";
                                 $sql2 = $con->query("select * from equipo where `id_equipo`='$code'");
                                 while ($fila = $sql2->fetch_array()) {
                                 ?>
-                                    <form class="form" method="POST" action="php/new_equipo.php?id=<?php echo $code ?>">
+                                    <form class="form" method="POST" action="php/update_equipo.php?id=<?php echo $code ?>">
                                         <div class="form-group m-t-40 row">
                                             <label for="example-text-input" class="col-2 col-form-label">Rack</label>
                                             <div class="col-10">
