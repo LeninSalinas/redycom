@@ -40,7 +40,8 @@ $titulo = "Puertos";
                                                 <?php
                                                 $marca = "equipo.marca_equ";
                                                 $rol = "rol.nombre_rol";
-                                                $sql = $con->query("select CONCAT($marca,' ',$rol) AS Equipos, equipo.id_equipo FROM ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
+                                                $sql = $con->query("select CONCAT($marca,' ',$rol) AS Equipos, equipo.id_equipo FROM 
+                                                ((`equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol) INNER JOIN rack ON equipo.id_rack=rack.id_rack)");
                                                 while ($rows = $sql->fetch_array()) {
                                                 ?>
                                                     <option value="<?php echo $rows['id_equipo']; ?>"><?php echo $rows["Equipos"]; ?></option>
@@ -53,7 +54,8 @@ $titulo = "Puertos";
                                         <div class="col-10">
                                             <select class="custom-select col-12" id="inlineFormCustomSelect" name="nompuerto" required>
                                                 <?php
-                                                $sql2 = $con->query("select `cant_puertos_equ` FROM `equipo` `equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol WHERE $marca='hp' AND $rol='switch'  AND `estado_equ`='1'");
+                                                $sql2 = $con->query("select `cant_puertos_equ` FROM `equipo` `equipo` INNER JOIN rol ON equipo.id_rol=rol.id_rol 
+                                                WHERE $marca='hp' AND $rol='switch'  AND `estado_equ`='1'");
                                                 while ($fila = $sql2->fetch_array()) {
                                                     for ($i = 1; $i <= $fila['cant_puertos_equ']; $i++) {
                                                 ?>

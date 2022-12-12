@@ -18,16 +18,31 @@ $estado_equ = $_POST['estado'];
 $c_usuario_equ = $_POST['usuario'];
 $c_password_equ = $_POST['password'];
 
-$sql = "INSERT INTO rack (id_sucursal,nombre_rack,ranuras_rack,estado_rack)
-                      VALUES ($id_sucursal,'$nombre_rack',$ranuras_rack,$estado_rack)";
+        $sql = 
+        "UPDATE
+            `equipo`
+        SET
+        `id_rack` = '$id_rack',
+        `marca_equ` = '$marca_equ',
+        `modelo_equ` = '$modelo_equ',
+        `id_rol` = '$rol_equ',
+        `cant_puertos_equ` = '$cant_puertos_equ',
+        `ip_equ` = '$ip_equ',
+        `doble_fuente_equ` = '$doble_fuente_equ',
+        `backup_equ` = '$backup_equ',
+        `monitoreo_equ` = '$monitoreo_equ',
+        `c_usuario_equ` = '$c_usuario_equ',
+        `c_password_equ` = '$c_password_equ',
+        `estado_equ` = '$estado_equ'
+        WHERE
+        `id_equipo`='$id'";
 
 if($con->query($sql)==true){
     echo '<script type="text/javascript">;
-    alert("Rack Registrado Correctamente");
-    window.location.href="../racks.php?id='.$id_sucursal.'";</script>';
+    alert("Equipo Registrado Correctamente");
+    window.location.href="../equipos.php";</script>';
 }else{
     echo '<script type="text/javascript">;
-    alert("Error! Al Registrar El Rack | '.$con->mysqli_error.'");
-    window.location.href="../rack_nuevo.php";</script>';
+    alert("Error! Al Registrar El Equipo | '.$con->mysqli_error.'");
+    window.location.href="../equipos.php";</script>';
 }
-?>
