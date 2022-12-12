@@ -39,10 +39,10 @@ $c_password_equ = $_POST['password'];
 
 if($con->query($sql)==true){
     echo '<script type="text/javascript">;
-    alert("Equipo Registrado Correctamente");
+    alert("Equipo Actualizado Correctamente");
     window.location.href="../equipos.php";</script>';
 }else{
     echo '<script type="text/javascript">;
-    alert("Error! Al Registrar El Equipo | '.$con->mysqli_error.'");
+    alert("Error! Al Actualizado El Equipo | '.$con->mysqli_error.'");
     window.location.href="../equipos.php";</script>';
 }
