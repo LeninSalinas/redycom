@@ -53,7 +53,7 @@ $titulo = "RACKS";
                                 }else{
                                 ?>
                             <li class="list-group-item">Slot Vacio |
-                                <span class="badge badge-success" onclick="asignar('<?php echo $x; ?>','<?php echo $id_sucursal;?>')"><i class="fa fa-plus"></i></span>
+                                <span class="badge badge-success" onclick="asignar('<?php echo $x; ?>','<?php echo $id_sucursal;?>','<?php echo $id_rack;?>')"><i class="fa fa-plus"></i></span>
                             </li>
                                 <?php
                                 }
@@ -71,13 +71,13 @@ $titulo = "RACKS";
     </div>
     <?php include_once 'scripts.php'; ?>
     <script>
-    function asignar(id, suc){
+    function asignar(id, suc, rack){
 	  var options = {
 			modal: true,
 			height:300,
 			width:600
 		};
-	  $('#contenido').load('ajax/datos_equipo.php?id='+id+'&suc='+suc, function() {
+	  $('#contenido').load('ajax/datos_equipo.php?id='+id+'&suc='+suc+'&rack='+rack, function() {
 		$('#AsignarEquipo').modal({show:true});
     });
     }

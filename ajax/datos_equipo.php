@@ -2,6 +2,7 @@
 if(!empty($_GET['id'])){
     $id = $_GET['id'];
     $suc = $_GET['suc'];
+    $rack = $_GET['rack'];
     require_once '../config/db.php';
     require_once '../config/conexion.php';
 ?>
@@ -10,7 +11,7 @@ if(!empty($_GET['id'])){
         <label for="recipient-name" class="control-label">Asignar Equipo a Slot <?php echo $id;?></label>
         <select class="custom-select col-12" id="inlineFormCustomSelect" name="equipo" required>
             <?php 
-            $sql = $con->query("SELECT * FROM equipo WHERE rack_pos=0 AND estado_equ = 1");
+            $sql = $con->query("SELECT * FROM equipo WHERE rack_pos=0 AND estado_equ = 1 AND id_rack='$rack'");
             while ($rows = $sql->fetch_array()){
             ?>
             <option value="<?php echo $rows['id_equipo'];?>"><?php echo $rows['marca_equ']."-".$rows['ip_equ'];?></option>
@@ -19,7 +20,7 @@ if(!empty($_GET['id'])){
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-success waves-effect waves-light">Enviar</button>
+        <button type="submit" class="btn btn-success waves-effect waves-light">Asignar</button>
     </div>
     <input hidden type="text" class="form-control" name="slot" value="<?php echo $id;?>">
     <input hidden type="text" class="form-control" name="suc" value="<?php echo $suc;?>">
