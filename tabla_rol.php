@@ -75,7 +75,7 @@ $titulo = "Roles de equipos";
                                                         <td class="text-nowrap">
                                                             <a href="actualizar_rol.php?id=<?php echo $row['id_rol'];
                                                                                             ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                            <a href="deleteeq.php?id=<?php //aqui va el id 
+                                                            <a href="drop_rol.php?id=<?php echo $row['id_rol'];
                                                                                         ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                                                         </td>
                                                     </tr>
