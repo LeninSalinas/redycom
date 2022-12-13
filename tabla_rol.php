@@ -4,7 +4,7 @@ require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "rol";
+$titulo = "Roles de equipos";
 
 ?>
     <!DOCTYPE html>
@@ -31,46 +31,19 @@ $titulo = "rol";
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="col-md-6">
-                                        <!-- Nav tabs -->
-                                        <div class="vtabs">
-                                            <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                                                <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home4" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down"></span> </a> </li>
-                                                <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Profile</span></a> </li>
-                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li>-->
-                                            </ul>
-                                            <!-- Tab panes -->
-                                            <div class="tab-content">
-                                                <div class="tab-pane active show" id="home4" role="tabpanel">
-                                                    <div class="p-20">
-                                                        <!--aqui va info del equipo-->
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane p-20" id="profile4" role="tabpanel">2</div>
-                                                <div class="tab-pane p-20" id="messages4" role="tabpanel">3</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <h6 class="card-subtitle">Listado de roles</h6>
                                     <div class="table-responsive m-t-40">
-                                        <div id="example23_wrapper" class="dataTables_wrapper">
-                                            <div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example23" href="#">
-                                                    <span>Copy</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="example23" href="#">
-                                                    <span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example23" href="#">
-                                                    <span>PDF</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="example23" href="#"><span>Print</span></a></div>
-                                            <div id="example23_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example23"></label></div>
-                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
-                                                <thead>
-                                                    <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Marca: activate to sort column descending" style="width: 129px;">ID</th>
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Marca: activate to sort column descending" style="width: 129px;">NOMBRE</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Modelos: activate to sort column ascending" style="width: 194px;">DESCRIPCION</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Rol: activate to sort column ascending" style="width: 96px;">STATUS</th>
-
-                                                        <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-label="Direccion IP: activate to sort column ascending" style="width: 66px;">Acciones</th>
-                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                    <table id="rol" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>NOMBRE</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>STATUS</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                                        <?php
 
 
@@ -112,19 +85,7 @@ $titulo = "rol";
                                                 </tbody>
                                             </table>
                                      
-                                        <!--<div class="dataTables_info" id="example23_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>-->
-                                        <div class="dataTables_paginate paging_simple_numbers" id="example23_paginate">
-                                            <a class="paginate_button previous disabled" aria-controls="example23" data-dt-idx="0" tabindex="0" id="example23_previous">Previous</a>
-                                            <span>
-                                                <a class="paginate_button current" aria-controls="example23" data-dt-idx="1" tabindex="0">1</a>
-                                                <a class="paginate_button " aria-controls="example23" data-dt-idx="2" tabindex="0">2</a>
-                                                <a class="paginate_button " aria-controls="example23" data-dt-idx="3" tabindex="0">3</a>
-                                                <a class="paginate_button " aria-controls="example23" data-dt-idx="4" tabindex="0">4</a>
-                                                <a class="paginate_button " aria-controls="example23" data-dt-idx="5" tabindex="0">5</a>
-                                                <a class="paginate_button " aria-controls="example23" data-dt-idx="6" tabindex="0">6</a>
-                                            </span>
-                                            <a class="paginate_button next" aria-controls="example23" data-dt-idx="7" tabindex="0" id="example23_next">Next</a>
-                                        </div>
+                                        <!--<div class="dataTables_info" id="example23_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>-->                                        
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +98,6 @@ $titulo = "rol";
             <?php include_once 'footer.php'; ?>
         </div>
         <?php include_once 'scripts.php'; ?>
-        <!-- This is data table -->
         <script src="assets/node_modules/datatables/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
@@ -186,14 +146,13 @@ $titulo = "rol";
             });
         });
     });
-    $('#equipos').DataTable({
+    $('#rol').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
     </script>
+</body>
 
-    </body>
-
-    </html>
+</html>

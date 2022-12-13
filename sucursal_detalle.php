@@ -96,7 +96,7 @@ $sucursal = $sql->fetch_array();
                                 </div>
                                 <div class="tab-pane" id="editar" role="tabpanel">
                                     <div class="card-body">
-                                    <form class="form-material m-t-40" method="POST" action="php/edit_sucursal.php">
+                                    <form class="form-material m-t-40" method="POST" action="php/edit_sucursal.php?id=<?php echo $id_sucursal;?>">
                                     <div class="form-group">
                                         <label for="example-email">Nombre</label>
                                         <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $sucursal['nombre_suc'];?>" required>

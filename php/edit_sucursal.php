@@ -4,7 +4,7 @@ require_once '../config/conexion.php';
 require_once 'accesos.php';
 require_once 'funciones.php';
 
-$id_sucursal = $_POST['id'];
+$id_sucursal = $_GET['id'];
 $nombre_suc = $_POST['nombre'];
 $ubicacion_suc = $_POST['ubicacion'];
 $telefonp_suc = $_POST['telefono'];

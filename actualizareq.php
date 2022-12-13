@@ -111,11 +111,11 @@ $titulo = "Editar Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['backup_equ'] == "1") {echo "checked";} ?> name="backup">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="backup" <?php if ($fila['backup_equ'] == "1") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">Si</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['backup_equ'] == "0") {echo "checked";} ?> name="backup">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="backup" <?php if ($fila['backup_equ'] == "0") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">No</label>
                                                     </ul>
                                                 </div>
@@ -126,11 +126,11 @@ $titulo = "Editar Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['monitoreo_equ'] == "1") {echo "checked";} ?> name="monitoreo">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="monitoreo" <?php if ($fila['monitoreo_equ'] == "1") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">Si</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['monitoreo_equ'] == "0") {echo "checked";} ?> name="monitoreo">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="monitoreo" <?php if ($fila['monitoreo_equ'] == "0") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">No</label>
                                                     </ul>
                                                 </div>
@@ -141,11 +141,11 @@ $titulo = "Editar Equipo";
                                             <div class="col-10">
                                                 <div class="input-group">
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['estado_equ'] == "1") {echo "checked";} ?> name="estado">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="estado" <?php if ($fila['estado_equ'] == "1") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">Activo</label>
                                                     </ul>
                                                     <ul class="icheck-list">
-                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" <?php if ($fila['estado_equ'] == "0") {echo "checked";} ?> name="estado">
+                                                        <input tabindex="7" type="radio" class="check" id="minimal-radio-3" name="estado" <?php if ($fila['estado_equ'] == "0") {echo "checked";} ?>>
                                                         <label for="minimal-radio-1">Inactivo</label>
                                                     </ul>
                                                 </div>
