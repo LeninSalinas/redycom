@@ -41,7 +41,7 @@ $titulo = "Nuevo Equipo";
                                     <form class="form-material m-t-40" method="POST" action="php/actualizar_sucursal2.php?id=<?php echo $code ?>">
 
                                         <div class="form-group">
-                                            <label for="example-email">Nombre     <span  class="help"></span></label>
+                                            <label for="example-email">Nombre<span  class="help"></span></label>
                                             <input type="text" id="nombre" name="nombre"value="<?php echo $fila['nombre_suc']; ?>" class="form-control" placeholder="">
                                         </div>
                                         <div class="form-group">
@@ -56,13 +56,13 @@ $titulo = "Nuevo Equipo";
                                         <div class="form-group">
                                             <label>Estado</label>
                                             <select class="form-control" name="status">
-                                                <option <?php if ($fila['estado_suc'] == "1") {echo "selected";} ?>value="1">Habilitado</option>
-                                                <option <?php if ($fila['estado_suc'] == "0") {echo "selected";} ?> value="0">Desabilitado</option>
+                                                <option value="1" <?php if ($fila['estado_suc'] == "1") {echo "selected";} ?>>Habilitado</option>
+                                                <option  value="0" <?php if ($fila['estado_suc'] == "0") {echo "selected";} ?>>Desabilitado</option>
                                             </select>
                                         </div>
                                         <tr>
                                             <td>
-                                                <input type="submit" class="btn btn-success" value="Enviar" onclick="return ValidarForm()">
+                                                <input type="submit" class="btn btn-success" value="Enviar">
 
                                             </td>
                                             <td align="center">
