@@ -4,7 +4,7 @@ require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "Nuevo Equipo";
+$titulo = "Editar Equipo";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +32,6 @@ $titulo = "Nuevo Equipo";
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Registro de Equipo</h4>
                                 <?php
                                 $code = $_GET['id'];
                                 $sql2 = $con->query("select * from equipo where `id_equipo`='$code'");
