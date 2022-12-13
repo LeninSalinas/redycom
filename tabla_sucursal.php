@@ -4,7 +4,7 @@ require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "rol";
+$titulo = "TABLA SUCURSAL";
 
 ?>
     <!DOCTYPE html>
@@ -31,26 +31,7 @@ $titulo = "rol";
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="col-md-6">
-                                        <!-- Nav tabs -->
-                                        <div class="vtabs">
-                                            <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                                                <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home4" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Informacion del equipo</span> </a> </li>
-                                                <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Profile</span></a> </li>
-                                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li>-->
-                                            </ul>
-                                            <!-- Tab panes -->
-                                            <div class="tab-content">
-                                                <div class="tab-pane active show" id="home4" role="tabpanel">
-                                                    <div class="p-20">
-                                                        <!--aqui va info del equipo-->
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane p-20" id="profile4" role="tabpanel">2</div>
-                                                <div class="tab-pane p-20" id="messages4" role="tabpanel">3</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="table-responsive m-t-40">
                                         <div id="example23_wrapper" class="dataTables_wrapper">
                                             <div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example23" href="#">
@@ -76,7 +57,7 @@ $titulo = "rol";
 
 
                                                         $titulo = "sucursal";
-                                                        $sql = "select * from sucursal";
+                                                        $sql = "select * from sucursal where estado_suc=1";
                                                         $result = $con->query($sql);
                                                         while ($row = $result->fetch_assoc()) {
                                                         ?>
@@ -104,9 +85,9 @@ $titulo = "rol";
                                                         </td>
                                                         
                                                         <td class="text-nowrap">
-                                                            <a href="actualizareq.php?id=<?php //aqui va el id 
+                                                            <a href="actualizar_sucursal.php?id=<?php echo $row['id_sucursal'];
                                                                                             ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                            <a href="deleteeq.php?id=<?php //aqui va el id 
+                                                            <a href="deleteeq.php?id=<?php echo $row['id_sucursal'];
                                                                                         ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                                                         </td>
                                                     </tr>

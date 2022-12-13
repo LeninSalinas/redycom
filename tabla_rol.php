@@ -35,7 +35,7 @@ $titulo = "rol";
                                         <!-- Nav tabs -->
                                         <div class="vtabs">
                                             <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                                                <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home4" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Informacion del equipo</span> </a> </li>
+                                                <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home4" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down"></span> </a> </li>
                                                 <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Profile</span></a> </li>
                                             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li>-->
                                             </ul>
@@ -100,7 +100,7 @@ $titulo = "rol";
                                                         </td>
                                                         
                                                         <td class="text-nowrap">
-                                                            <a href="actualizareq.php?id=<?php //aqui va el id 
+                                                            <a href="actualizar_rol.php?id=<?php echo $row['id_rol'];
                                                                                             ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                                             <a href="deleteeq.php?id=<?php //aqui va el id 
                                                                                         ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
