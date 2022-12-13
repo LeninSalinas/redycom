@@ -11,7 +11,8 @@ $telefonp_suc = $_POST['telefono'];
 $estado_suc = $_POST['status'];
 
 
-$sql = "UPDATE sucursal SET nombre_suc='$nombre_suc', ubicacion_suc='$ubicacion_suc', telefono_suc='$telefonp_suc', estado_suc='$estado_suc' WHERE id_sucursal='$id_sucursal'";
+$sql = "UPDATE sucursal SET nombre_suc='$nombre_suc', ubicacion_suc='$ubicacion_suc', telefono_suc='$telefonp_suc',
+ estado_suc='$estado_suc' WHERE id_sucursal='$id_sucursal'";
 
 if($con->query($sql)==true){
     echo '<script type="text/javascript">;

@@ -17,8 +17,8 @@
                 <ul class="sidebar-menu">
                     <li><a href="sucursal.php">Crear Sucursal</a></li>
                     <li><a href="mapa.php">Mapa</a></li>
-                    <li><a href="tabla_sucursal.php">LISTA </a></li>
-                    <li><a href="tabla_rol.php">LISTA </a></li>
+                    <li><a href="tabla_sucursal.php">LISTA SUCURSAL </a></li>
+                    <li><a href="tabla_rol.php"> LISTA ROL </a></li>
                 </ul>
             </div>
         </li>

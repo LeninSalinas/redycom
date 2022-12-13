@@ -38,7 +38,7 @@ $titulo = "Nuevo Equipo";
                                 $sql2 = $con->query("select * from sucursal where `id_sucursal`='$code'");
                                 while ($fila = $sql2->fetch_array()) {
                                 ?>
-                                    <form class="form-material m-t-40" method="POST" action="php/actualizar_sucursal2.php?id=<?php echo $code ?>">
+                                    <form class="form-material m-t-40" method="POST" action="php/edit_sucursal.php?id=<?php echo $code ?>">
 
                                         <div class="form-group">
                                             <label for="example-email">Nombre<span  class="help"></span></label>
