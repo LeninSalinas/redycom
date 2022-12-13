@@ -25,7 +25,7 @@ $titulo = "Nueva Sucursal";
                     <form name="Form1" id="Form1" onsubmit=" return ValidarForm()" method="post" action="sucursal_save.php" enctype="multipart/form-data">
                         <div class="row page-titles">
                             <div class="col-md-12">
-                                <h4 class="text-dark"><?php echo $titulo; ?></h4>
+                            <h4 class="text-dark"><?php echo $titulo; ?></h4>
                             </div>
                             <div class="col-md-6 text-right">
 
@@ -70,11 +70,14 @@ $titulo = "Nueva Sucursal";
 
                                             </tr>
                                         </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php include_once 'rightbar.php'; ?>
+                        </form>
+                        </table>
             </div>
         </div>
         <?php include_once 'footer.php'; ?>

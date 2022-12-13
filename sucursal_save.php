@@ -16,7 +16,7 @@ $status=$_POST['status'];
    if($con->query($sql_query) === TRUE) 
    {
       echo"<script>alert('Se registro exitosamente')</script>";
-      echo"<meta http-equiv='refresh' content='1;url=sucursal_nueva.php'>";
+      echo"<meta http-equiv='refresh' content='1;url=sucursal.php'>";
     }
    else
      echo"Error al intentar crear el registro"; 
