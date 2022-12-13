@@ -7,7 +7,7 @@ require_once 'php/funciones.php';
 $titulo = "Detalle Sucursal";
 
 $id_sucursal = $_GET['id'];
-
+//aquuuuuui
 $sql = $con->query("SELECT * FROM sucursal WHERE id_sucursal='$id_sucursal'");
 $sucursal = $sql->fetch_array();
 ?>
