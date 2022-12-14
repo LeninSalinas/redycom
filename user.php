@@ -46,7 +46,7 @@ $titulo = "TABLA SUCURSAL";
                                         <tbody>
                                             <?php
                                             $titulo = "sucursal";
-                                            $sql = "SELECT * FROM `usuario` where `id_usr`=1";
+                                            $sql = "SELECT * FROM `usuario`";
                                             $result = $con->query($sql);
                                             while ($row = $result->fetch_assoc()) {
                                             ?>
@@ -72,7 +72,7 @@ $titulo = "TABLA SUCURSAL";
                                                     <td class="text-nowrap">
                                                         <a href="actualizar_user.php?id=<?php echo $row['id_usr'];
                                                                                             ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                        <a href="del_user.php?id=<?php echo $row['id_usr'];
+                                                        <a href="php/del_user.php?id=<?php echo $row['id_usr'];
                                                                                     ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                                                     </td>
                                                 </tr>
