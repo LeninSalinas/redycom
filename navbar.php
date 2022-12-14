@@ -44,4 +44,14 @@
                 </ul>
             </div>
         </li>        
+        <li>
+            <a href="javascript:void(0)"><i class="fa fa-group"></i></a>
+            <div class="sidebarmenu">
+                <h3 class="menu-title">Usuarios</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="user.php">Lista</a></li>
+                    <li><a href="user_nuevo.php">Crear Usuario</a></li>
+                </ul>
+            </div>
+        </li>   
 </div>

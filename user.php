@@ -4,7 +4,7 @@ require_once 'config/conexion.php';
 require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
-$titulo = "Roles de equipos";
+$titulo = "TABLA SUCURSAL";
 
 ?>
 <!DOCTYPE html>
@@ -31,51 +31,48 @@ $titulo = "Roles de equipos";
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-subtitle">Listado de roles</h6>
+                                <h6 class="card-subtitle">Listado de sucursales</h6>
                                 <div class="table-responsive m-t-40">
-                                    <table id="rol" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <table id="equipos" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>NOMBRE</th>
-                                                <th>DESCRIPCION</th>
-                                                <th>STATUS</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Emails</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-
-
-                                            $titulo = "rol";
-                                            $sql = "select * from rol where estado_rol=1";
+                                            $titulo = "sucursal";
+                                            $sql = "SELECT * FROM `usuario` where `id_usr`=1";
                                             $result = $con->query($sql);
                                             while ($row = $result->fetch_assoc()) {
                                             ?>
                                                 <tr>
                                                     <td>
                                                         <?php
-                                                        echo $row['id_rol']; //aqui van a ir los datos de la tabla 
+                                                        echo $row['id_usr']; //aqui van a ir los datos de la tabla 
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php
-                                                        echo $row['nombre_rol']; //aqui van a ir los datos de la tabla 
+                                                        <?php echo $row['nombre_usr']; //aqui van a ir los datos de la tabla
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['descripcion_rol']; //aqui van a ir los datos de la tabla
+                                                        <?php echo $row['apellido_usr']; //aqui van a ir los datos de la tabla
                                                         ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo $row['estado_rol']; //aqui van a ir los datos de la tabla
-                                                        ?>
+                                                        <?php echo $row['email_usr']; //aqui van a ir los datos de la tabla
+                                                        ?>                                                    
                                                     </td>
 
                                                     <td class="text-nowrap">
-                                                        <a href="actualizar_rol.php?id=<?php echo $row['id_rol'];
-                                                                                        ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                        <a href="php/drop_rol.php?id=<?php echo $row['id_rol'];
+                                                        <a href="actualizar_user.php?id=<?php echo $row['id_usr'];
+                                                                                            ?>" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="del_user.php?id=<?php echo $row['id_usr'];
                                                                                     ?>" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
                                                     </td>
                                                 </tr>
@@ -83,9 +80,7 @@ $titulo = "Roles de equipos";
                                             }
                                             ?>
                                         </tbody>
-                                    </table>
-
-                                    <!--<div class="dataTables_info" id="example23_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>-->
+                                    </table>                                    
                                 </div>
                             </div>
                         </div>
@@ -107,51 +102,51 @@ $titulo = "Roles de equipos";
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
         $(document).ready(function() {
-            $('#myTable').DataTable();
-            $(document).ready(function() {
-                var table = $('#example').DataTable({
-                    "columnDefs": [{
-                        "visible": false,
-                        "targets": 2
-                    }],
-                    "order": [
-                        [2, 'asc']
-                    ],
-                    "displayLength": 25,
-                    "drawCallback": function(settings) {
-                        var api = this.api();
-                        var rows = api.rows({
-                            page: 'current'
-                        }).nodes();
-                        var last = null;
-                        api.column(2, {
-                            page: 'current'
-                        }).data().each(function(group, i) {
-                            if (last !== group) {
-                                $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                                last = group;
-                            }
-                        });
-                    }
-                });
-                // Order by the grouping
-                $('#example tbody').on('click', 'tr.group', function() {
-                    var currentOrder = table.order()[0];
-                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                        table.order([2, 'desc']).draw();
-                    } else {
-                        table.order([2, 'asc']).draw();
-                    }
-                });
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
             });
         });
-        $('#rol').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        });
+    });
+    $('#equipos').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
     </script>
 </body>
 

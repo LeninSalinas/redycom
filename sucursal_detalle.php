@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'config/db.php';
 require_once 'config/conexion.php';
 require_once 'php/accesos.php';
@@ -13,11 +13,12 @@ $sucursal = $sql->fetch_array();
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<?php include_once 'head.php';?>
-<body class="skin-default fixed-layout">   
-    <?php include_once 'loader.php';?>
+<?php include_once 'head.php'; ?>
+
+<body class="skin-default fixed-layout">
+    <?php include_once 'loader.php'; ?>
     <div id="main-wrapper">
-        <?php 
+        <?php
         include_once 'top_bar.php';
         include_once 'navbar.php';
         ?>
@@ -25,7 +26,7 @@ $sucursal = $sql->fetch_array();
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-12">
-                        <h4 class="text-dark"><?php echo $titulo;?></h4>
+                        <h4 class="text-dark"><?php echo $titulo; ?></h4>
                     </div>
                     <div class="col-md-6 text-right">
 
@@ -36,18 +37,37 @@ $sucursal = $sql->fetch_array();
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="recursos/img/sucursal_icon.png" class="img" width="150" />
-                                    <h4 class="card-title m-t-10"><?php echo $sucursal['nombre_suc'];?></h4>
+                                    <h4 class="card-title m-t-10"><?php echo $sucursal['nombre_suc']; ?></h4>
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="racks.php?id=<?php echo $id_sucursal; ?>" class="link"><i class="icon-layers"></i> <font class="font-medium">1</font></a></div>
-                                        <div class="col-4"><a href="equipos.php" class="link"><i class="icon-drawar"></i> <font class="font-medium">1</font></a></div>
+                                        <div class="col-4"><a href="racks.php?id=<?php echo $id_sucursal; ?>" class="link"><i class="icon-layers"></i>
+                                                <font class="font-medium">
+                                                    <?php
+                                                    $sql2 = $con->query("SELECT COUNT(rack.nombre_rack) FROM `rack` INNER JOIN sucursal ON rack.id_sucursal=sucursal.id_sucursal WHERE sucursal.id_sucursal='$id_sucursal'");
+                                                    while ($fila = $sql2->fetch_array()) {
+                                                        echo $fila['COUNT(rack.nombre_rack)'];
+                                                    }
+                                                    ?>
+                                                </font>
+                                            </a></div>
+                                        <div class="col-4"><a href="equipos.php" class="link"><i class="icon-drawar"></i>
+                                                <font class="font-medium">
+                                                    <?php
+                                                    $sql2 = $con->query("SELECT COUNT(equipo.marca_equ) FROM ((`rack` INNER JOIN sucursal ON rack.id_sucursal=sucursal.id_sucursal) INNER JOIN equipo ON rack.id_rack=equipo.id_rack) WHERE sucursal.id_sucursal='$id_sucursal'");
+                                                    while ($fila = $sql2->fetch_array()) {
+                                                        echo $fila['COUNT(equipo.marca_equ)'];
+                                                    }
+                                                    ?>
+                                                </font>
+                                            </a></div>
                                     </div>
                                 </center>
                             </div>
                             <div>
-                                <hr> </div>
+                                <hr>
+                            </div>
                             <div class="card-body">
                                 <div class="map-box">
-                                <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=<?php echo $sucursal['ubicacion_suc']; ?>&amp;t=&amp;z=7&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                    <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=<?php echo $sucursal['ubicacion_suc']; ?>&amp;t=&amp;z=7&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                                 </div> <small class="text-muted p-t-30 db">Ubicacion GPS</small>
                             </div>
                         </div>
@@ -64,15 +84,29 @@ $sucursal = $sql->fetch_array();
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> <strong># Racks</strong>
                                                 <br>
-                                                <p class="text-muted">1</p>
+                                                <p class="text-muted">
+                                                    <?php
+                                                    $sql2 = $con->query("SELECT COUNT(rack.nombre_rack) FROM `rack` INNER JOIN sucursal ON rack.id_sucursal=sucursal.id_sucursal WHERE sucursal.id_sucursal='$id_sucursal'");
+                                                    while ($fila = $sql2->fetch_array()) {
+                                                        echo $fila['COUNT(rack.nombre_rack)'];
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong># Equipos</strong>
                                                 <br>
-                                                <p class="text-muted">1</p>
+                                                <p class="text-muted">
+                                                    <?php
+                                                    $sql2 = $con->query("SELECT COUNT(equipo.marca_equ) FROM ((`rack` INNER JOIN sucursal ON rack.id_sucursal=sucursal.id_sucursal) INNER JOIN equipo ON rack.id_rack=equipo.id_rack) WHERE sucursal.id_sucursal='$id_sucursal'");
+                                                    while ($fila = $sql2->fetch_array()) {
+                                                        echo $fila['COUNT(equipo.marca_equ)'];
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Telefono</strong>
                                                 <br>
-                                                <p class="text-muted"><?php echo $sucursal['telefono_suc']?></p>
+                                                <p class="text-muted"><?php echo $sucursal['telefono_suc'] ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6"> <strong>Coordenadas</strong>
                                                 <br>
@@ -80,7 +114,7 @@ $sucursal = $sql->fetch_array();
                                             </div>
                                         </div>
                                         <hr>
-                                        <h5 class="m-t-30">Ranuras Usadas <span class="pull-right">80%</span></h5>
+                                        <h5 class="m-t-30">Ranuras Usadas <span class="pull-right">40%</span></h5>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
                                         </div>
@@ -96,50 +130,51 @@ $sucursal = $sql->fetch_array();
                                 </div>
                                 <div class="tab-pane" id="editar" role="tabpanel">
                                     <div class="card-body">
-                                    <form class="form-material m-t-40" method="POST" action="php/edit_sucursal.php?id=<?php echo $id_sucursal;?>">
-                                    <div class="form-group">
-                                        <label for="example-email">Nombre</label>
-                                        <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $sucursal['nombre_suc'];?>" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email">Ubicacion</label>
-                                        <input type="text" id="ubicacion" name="ubicacion" class="form-control"value="<?php echo $sucursal['ubicacion_suc'];?>" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email">Telefono</label>
-                                        <input type="text" id="telefono" name="telefono" class="form-control" value="<?php echo $sucursal['telefono_suc'];?>" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Estado</label>
-                                        <select class="form-control" name="status" required>
-                                            <?php if($sucursal['estado_suc']==1){
-                                                $select1="selected";
-                                                $select0="";
-                                            }else{
-                                                $select0="selected";
-                                                $select1="";
-                                            }
-                                            ?>
-                                            <option value="1" <?php echo $select1;?>>Habilitado</option>
-                                            <option value="0" <?php echo $select0;?>>Desabilitado</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <input hidden type="number" name="id" value="<?php echo $id_sucursal;?>" required>
-                                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Actualizar</button>
-                                    </div>
-                                    </form>
+                                        <form class="form-material m-t-40" method="POST" action="php/edit_sucursal.php?id=<?php echo $id_sucursal; ?>">
+                                            <div class="form-group">
+                                                <label for="example-email">Nombre</label>
+                                                <input type="text" id="nombre" name="nombre" class="form-control" value="<?php echo $sucursal['nombre_suc']; ?>" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="example-email">Ubicacion</label>
+                                                <input type="text" id="ubicacion" name="ubicacion" class="form-control" value="<?php echo $sucursal['ubicacion_suc']; ?>" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="example-email">Telefono</label>
+                                                <input type="text" id="telefono" name="telefono" class="form-control" value="<?php echo $sucursal['telefono_suc']; ?>" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Estado</label>
+                                                <select class="form-control" name="status" required>
+                                                    <?php if ($sucursal['estado_suc'] == 1) {
+                                                        $select1 = "selected";
+                                                        $select0 = "";
+                                                    } else {
+                                                        $select0 = "selected";
+                                                        $select1 = "";
+                                                    }
+                                                    ?>
+                                                    <option value="1" <?php echo $select1; ?>>Habilitado</option>
+                                                    <option value="0" <?php echo $select0; ?>>Desabilitado</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group m-t-40 row">
+                                                <input hidden type="number" name="id" value="<?php echo $id_sucursal; ?>" required>
+                                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Actualizar</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php include_once 'rightbar.php';?>
+                <?php include_once 'rightbar.php'; ?>
             </div>
         </div>
-        <?php include_once 'footer.php';?>
+        <?php include_once 'footer.php'; ?>
     </div>
     <?php include_once 'scripts.php'; ?>
 </body>
+
 </html>
