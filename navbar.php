@@ -53,5 +53,6 @@
                     <li><a href="user_nuevo.php">Crear Usuario</a></li>
                 </ul>
             </div>
-        </li>   
+        </li>
+    </ul>   
 </div>
