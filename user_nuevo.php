@@ -1,7 +1,7 @@
 <?php
 require_once 'config/db.php';
 require_once 'config/conexion.php';
-require_once 'php/accesos.php';
+//require_once 'php/accesos.php';
 require_once 'php/funciones.php';
 
 $titulo = "Usuario";
@@ -143,7 +143,7 @@ $titulo = "Usuario";
                                                     <span><i class="icon-camera"></i></span>
                                                 </div>
                                                 <!--<input class="form-control" type="file" id="add-new-photo" name="foto">-->
-                            <input type="file" class="form-control" id="add-new-photo" name="fotos">
+                                                <input type="file" class="form-control" id="add-new-photo" name="fotos">
                                             </div>
                                         </div>
                                     </section>
