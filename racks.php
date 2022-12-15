@@ -15,7 +15,7 @@ $titulo = "RACKS";
     <?php include_once 'loader.php';?>
     <div id="main-wrapper">
         <?php 
-        include_once 'top_bar.php';
+        //include_once 'top_bar.php';
         include_once 'navbar.php';
         include_once 'ventanas/asignar_equipo.php';
         ?>
