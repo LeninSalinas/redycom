@@ -16,8 +16,8 @@ $ext = strtolower(pathinfo($_FILES['fotos']['name'], PATHINFO_EXTENSION));
 $foto = "recursos/img/".$email_usr.".".$ext;
 $destino = "../".$foto;
 
-$sql = "INSERT INTO `usuario`(`foto`, `nombre_usr`, `apellido_usr`, `email_usr`, `passwrod_usr`, `estado_usr`)
-                      VALUES ($foto,'$nombre_usr','$apellido_usr','$email_usr','$password_encrip','1')";
+$sql = "INSERT INTO usuario (nombre_usr, apellido_usr, email_usr, passwrod_usr, estado_usr, foto)
+                      VALUES ('$nombre_usr','$apellido_usr','$email_usr','$password_encrip','1','$foto')";
              
 if($con->query($sql)==true){
 
@@ -34,7 +34,9 @@ if($con->query($sql)==true){
     }
 
 }else{
+    
     echo '<script type="text/javascript">;
     alert("Error! Al Registrar El Usuario | '.$con->mysqli_error.'");
     window.location.href="../user_nuevo.php";</script>';
+    
 }
