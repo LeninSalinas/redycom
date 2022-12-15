@@ -1,7 +1,7 @@
 <?php 
 require_once '../config/db.php';
 require_once '../config/conexion.php';
-require_once 'accesos.php';
+//require_once 'accesos.php';
 require_once 'funciones.php';
 
 $nombre_usr = $_POST['user'];
